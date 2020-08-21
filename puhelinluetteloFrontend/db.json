@@ -1,0 +1,19 @@
+{
+  "persons": [
+    {
+      "id": 0.9684113203940881,
+      "name": "Mauno Kekkonen",
+      "number": "45"
+    },
+    {
+      "id": 0.3463852769823066,
+      "name": "Pentti-Uolevi Nyhtänköljä",
+      "number": "634623667"
+    },
+    {
+      "id": 0.3113033736185389,
+      "name": "3452",
+      "number": ""
+    }
+  ]
+}
