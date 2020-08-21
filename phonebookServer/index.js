@@ -1,7 +1,14 @@
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
 
 app.use(express.json())
+app.use(morgan(':method :url :status - :response-time ms :content'))
+
+morgan.token('content', (request, response) => {
+    return JSON.stringify(request.body)
+})
+
 
 var fs = require("fs")
 var persons = (JSON.parse(fs.readFileSync("db.json", "utf-8"))).persons
@@ -28,7 +35,8 @@ const writeToFile = (persons, fs) => {
     })
     fs.writeFile('db.json', toFile, 'utf-8', (error) => {
         if (error) { return console.log('Write error')}
-        else { return console.log('Write success')}
+        else { return  0 // console.log('Write success')
+    }
     })
 }
 
@@ -87,7 +95,7 @@ app.delete('/api/persons/:id', (request, response) => {
     const person = persons.find(person => person.id === id)
     persons = persons.filter(person => person.id !== id)
     
-    console.log(person)
+    //console.log(person)
     writeToFile(persons, fs)
 
     person 
