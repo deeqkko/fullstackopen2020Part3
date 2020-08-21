@@ -1,0 +1,27 @@
+{
+  "name": "phonebookserver",
+  "version": "1.0.0",
+  "description": "Fullstack open 2020 Part 3 Exercises",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js",
+    "dev":"nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deeqkko/fullstackopen2020Part3.git"
+  },
+  "author": "deeqkko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deeqkko/fullstackopen2020Part3/issues"
+  },
+  "homepage": "https://github.com/deeqkko/fullstackopen2020Part3#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
