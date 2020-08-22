@@ -4,6 +4,9 @@
   "description": "Fullstack open 2020 Part 3 Exercises",
   "main": "index.js",
   "scripts": {
+    "build:ui" :"rm -rf ./build && cd ../puhelinluetteloFrontend && npm run build --prod && cp -r ./build ../phonebookServer/",
+    "push:heroku": "git push heroku master",
+    "deploy:heroku:full": "npm run build:ui && git add . && git commit -m uiupdate && npm run push:heroku",
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"

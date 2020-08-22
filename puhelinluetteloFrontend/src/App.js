@@ -63,7 +63,7 @@ const App = () => {
       commServer
         .postToServer(entryObject)
         .then(response => {
-          showNotification(`Added ${response.name} to phonebook.`, `green`)
+          showNotification(`Added ${entryObject.name} to phonebook.`, `green`)
         })
     }
     setNewName('')

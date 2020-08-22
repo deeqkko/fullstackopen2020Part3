@@ -1,5 +1,5 @@
 import axios from 'axios'
-const serverUrl = 'https://boiling-meadow-51224.herokuapp.com/api/persons'
+const serverUrl = '/api/persons'
 
 const getPhoneBook = () => {
     const request = axios.get(serverUrl)
