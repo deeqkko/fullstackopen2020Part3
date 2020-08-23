@@ -13,3 +13,6 @@ https://boiling-meadow-51224.herokuapp.com/api/persons
     - Dev-version running on localhost:3001 (npm run dev)
     - Production version running at
     https://boiling-meadow-51224.herokuapp.com
+
+* mongo commandline tool mongo.js (Exercise 3.12)
+    - phonebookServer/mongo.js
