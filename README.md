@@ -8,6 +8,7 @@ Fullstack 2020 Part 3 backend exercises.
 https://boiling-meadow-51224.herokuapp.com/api/persons
 
 * phonebookServer Full stack (Exercise 3.11)
+    - Correct code in indexFile.js. Copy it to index.js to use locally!
     - Build and deployment scripts in package.json
     - Frontend run on ./build
     - Dev-version running on localhost:3001 (npm run dev)
