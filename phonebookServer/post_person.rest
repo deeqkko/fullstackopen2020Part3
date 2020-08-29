@@ -1,6 +1,13 @@
-POST http://localhost:3001/api/persons
+# POST http://localhost:3001/api/persons
+# Content-Type: application/json
+
+# {
+#     "name": "Viivi Pannukakk"
+# }
+
+PUT http://localhost:3001/api/persons/5f42088cca8d7e14ef36ffdc
 Content-Type: application/json
 
 {
-    "name": "Viivi Pannukakk"
+    "number": "15"
 }

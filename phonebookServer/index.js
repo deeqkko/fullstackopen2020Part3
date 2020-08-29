@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const app = express()
 const cors = require('cors')
 const Person = require('./models/person')
+const { response } = require('express')
 
 app.use(express.static('build'))
 app.use(cors())
@@ -15,17 +16,16 @@ morgan.token('content', (request, response) => {
 })
 
 
-var fs = require("fs")
-const { request } = require('express')
-var persons = (JSON.parse(fs.readFileSync("db.json", "utf-8"))).persons
+const errorHandler = (error, request, response, next) => {
+    console.log(error.message)
 
-const infoPage = (persons) => {
-    const now = new Date();
-    return(
-        `<p>Phonebook has ${persons.length} persons.</p>
-        <p>${now}</p>`
-    )
+    if (error.name === 'CastError') {
+        return response.status(404).send({ error:'Incorrect id format'})
+    }
+
+    next(error)
 }
+
 
 app.get('/', (request, response) => {
     response.send('<h1>Hello there!</h1>')
@@ -39,17 +39,31 @@ app.get('/api/persons', (request, response) => {
         })
         response.json(result)
     })
-    .catch((error) => {
-        console.log(`Not found ${error}`)
-    })
+    .catch(error => next(error))
     
 })
 
-app.get('/api/persons/:id', (request, response) => {
-    Person.findById(request.params.id).then(result => {
+app.get('/api/persons/:id', (request, response, next) => {
+    Person.findById(request.params.id)
+    .then(result => {
         console.log(result)
         response.json(result)
     })
+    .catch(error => next(error))
+})
+
+app.use(errorHandler)
+
+app.put('/api/persons/:id', (request, response) => {
+    const update = {
+        number: request.body.number
+    }
+    
+    Person.findByIdAndUpdate(request.params.id, update, { new: 'true'})
+        .then(updatePerson => {
+            response.json(updatePerson)
+        })
+        .catch(error => next(error))
 })
 
 app.post('/api/persons', (request, response) => {
@@ -82,18 +96,27 @@ app.post('/api/persons', (request, response) => {
         })
         
     })
+        .catch(error => next(error))
 })
+
+
 
 app.delete('/api/persons/:id', (request, response) => {
     Person.findByIdAndDelete(request.params.id)
         .then(result => {
             response.status(204).end()
         })
-    
+        .catch(error => next(error))
 })
 
 app.get('/info', (request, response) => {
-    response.send(infoPage(persons))
+    const now = new Date()
+    Person.countDocuments({})
+        .then(result =>
+            response.send(
+                `<p>The phonebook has ${result} persons <p>${now}`
+            ))
+        .catch(error => next(error))
 })
 
 const PORT = process.env.PORT || 3001

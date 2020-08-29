@@ -18,7 +18,8 @@ https://boiling-meadow-51224.herokuapp.com/api/persons
 * mongo commandline tool mongo.js (Exercise 3.12)
     - phonebookServer/mongo.js
 
-* phonebookServer using MongoDB (Exercises 3.13 - 3.14)
-    - Create, Read and Delete operational
+* phonebookServer using MongoDB (Exercises 3.13 - 3.18)
+    - Create, Read, Update and Delete operational
     - indexFile.js -> code maintaining phone book in a local json-file
-    - indexDb.js and models/person.js -> code maintaining phone book in a database 
+    - indexDb.js and models/person.js -> code maintaining phone book in a database
+    - info-page at /info 

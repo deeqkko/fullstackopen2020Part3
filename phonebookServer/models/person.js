@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 
+mongoose.set('useFindAndModify', false)
+
 const dbUrl = process.env.DB_URL
 
 console.log(`Connecting ${dbUrl}`)
