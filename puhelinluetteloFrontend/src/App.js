@@ -65,6 +65,12 @@ const App = () => {
         .then(response => {
           showNotification(`Added ${entryObject.name} to phonebook.`, `green`)
         })
+        .catch(error => {
+          showNotification(
+            `${error.response.data.error.message}`,
+            `red`
+          )
+        })
     }
     setNewName('')
     setNewNumber('')

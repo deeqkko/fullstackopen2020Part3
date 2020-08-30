@@ -22,4 +22,9 @@ https://boiling-meadow-51224.herokuapp.com/api/persons
     - Create, Read, Update and Delete operational
     - indexFile.js -> code maintaining phone book in a local json-file
     - indexDb.js and models/person.js -> code maintaining phone book in a database
-    - info-page at /info 
+    - info-page at /info
+
+* Exercises 3.19 - 3.22
+    - Validations (Duplicate, minlength)
+    - App on Heroku: https://boiling-meadow-51224.herokuapp.com/api/persons
+    - Style errors fixed with eslint (some errors, like unused variables, remained)
